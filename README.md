@@ -3,6 +3,11 @@ Server Essentials mod for Minetest by GunshipPenguin
 A collection of useful commands and features for use by Minetest server administrators.
 
 List of commands:
+	
+	/clearinv
+		Required privileges: None
+
+		Clears your inventory
 
 	/godmode
 		Required privileges: godmode
@@ -16,6 +21,7 @@ List of commands:
 
 	/killme
 		Required Privileges: None
+		
 		Kills self.
 		
 	/heal [playerName]

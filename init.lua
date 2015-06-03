@@ -49,6 +49,16 @@ if minetest.setting_get("static_spawnpoint") then
 	})
 end
 
+minetest.register_chatcommand("clearinv", {
+	params = "";
+	description = "Clear your inventory",
+	privs = {},
+	func = function(playerName, text)
+		local inventory = minetest.get_player_by_name(playerName):get_inventory()
+		inventory:set_list("main", {})
+	end,
+})
+
 minetest.register_chatcommand("broadcast", {
 	params = "<text>",
 	description = "Broadcast message to server",
