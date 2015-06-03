@@ -81,4 +81,4 @@ Other features:
 		Automatically removes bones to prevent them from building up.
 	
 	Node disallowing:
-		Disallow placement of certian blocks, players with the disallowednodes priv can place them.
+		Disallow placement of certain blocks, players with the disallowednodes priv can place them.
