@@ -49,6 +49,21 @@ if minetest.setting_get("static_spawnpoint") then
 	})
 end
 
+minetest.register_chatcommand("motd", {
+	params = "", 
+	description = "Display server motd",
+	privs = {}, 
+	func = function(playerName, text)
+		local motd = minetest.setting_get("motd")
+		if motd == nil or motd == "" then
+			minetest.chat_send_player(playerName, "Motd has not been set")
+		else
+			minetest.chat_send_player(playerName, motd)
+		end
+	end 
+})
+
+
 minetest.register_chatcommand("clearinv", {
 	params = "";
 	description = "Clear your inventory",

@@ -29,6 +29,11 @@ List of commands:
 		
 		Heals specified player, if no player is specified, heals self.
 		
+	/motd
+		Required privileges: none
+		
+		View server motd
+			
 	/broadcast
 		Required privileges: broadcast
 		
