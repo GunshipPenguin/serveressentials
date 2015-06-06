@@ -49,6 +49,15 @@ if minetest.setting_get("static_spawnpoint") then
 	})
 end
 
+minetest.register_chatcommand("ping", {
+	params = "",
+	description = "Pong!",
+	privs = {},
+	func = function(playerName, text)
+		minetest.chat_send_player(playerName, "Pong!")
+	end
+})
+
 minetest.register_chatcommand("motd", {
 	params = "", 
 	description = "Display server motd",

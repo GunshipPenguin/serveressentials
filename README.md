@@ -4,6 +4,11 @@ A collection of useful commands and features for use by Minetest server administ
 
 List of commands:
 	
+	/ping
+		Required privileges: None
+
+		Pong!
+		
 	/clearinv
 		Required privileges: None
 
