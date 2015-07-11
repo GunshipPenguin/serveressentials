@@ -251,9 +251,13 @@ end)
 
 
 minetest.register_on_newplayer(function(player)
+	print("a")
 	if SHOW_FIRST_TIME_JOIN_MSG then
-		minetest.chat_send_player(player:get_player_name(), FIRST_TIME_JOIN_MSG)
+		minetest.after(0.1, function()
+			minetest.chat_send_all(player:get_player_name() .. FIRST_TIME_JOIN_MSG)
+		end)
 	end
+	print("b")
 end)
 
 minetest.register_on_placenode(function(pos, newNode, placer, oldnode, itemStack, pointed_thing)
