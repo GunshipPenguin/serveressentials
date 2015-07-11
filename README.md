@@ -92,3 +92,6 @@ Other features:
 	
 	Node disallowing:
 		Disallow placement of certain blocks, players with the disallowednodes priv can place them.
+
+	Chat spam kicking:
+		Automatically kick players who send chat messages that are greater than a certian length.

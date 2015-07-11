@@ -14,3 +14,6 @@ DISALLOWED_NODES = { --These nodes will be immediatly removed if they are placed
 
 REMOVE_BONES = true --If true, remove bones after REMOVE_BONES_TIME seconds
 REMOVE_BONES_TIME = 1800 --Remove bones after this amount of time (seconds)
+
+KICK_CHATSPAM = true --If true, players who send a chat message longer than MAX_CHAT_MSG_LENGTH will be kicked
+MAX_CHAT_MSG_LENGTH = 400 

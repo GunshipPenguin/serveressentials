@@ -18,6 +18,7 @@ minetest.register_privilege("top", "Player can use the /top command")
 minetest.register_privilege("setspeed", "Player can set player speeds with the /setspeed command")
 minetest.register_privilege("whois", "Player can view other player's network information with the /whois command")
 minetest.register_privilege("disallowednodes", "Player can place nodes in the DISALLOWED_NODES table")
+minetest.register_privilege("chatspam", "Player can send chat messages longer than MAX_CHAT_MSG_LENGTH without being kicked")
 
 if AFK_CHECK then
 	minetest.register_privilege("canafk", "Player can remain afk without being kicked")
@@ -273,6 +274,13 @@ minetest.register_on_placenode(function(pos, newNode, placer, oldnode, itemStack
 		end
 	end
 	return
+end)
+
+minetest.register_on_chat_message(function(name, message)
+	if KICK_CHATSPAM and not minetest.check_player_privs(name, {chatspam=true}) and string.len(message) > MAX_CHAT_MSG_LENGTH then
+		minetest.kick_player(name, "You were kicked because you sent a chat message longer than " .. MAX_CHAT_MSG_LENGTH .. " characters. This is to prevent chat spamming.")
+	end
+	return 
 end)
 
 minetest.register_globalstep(function(dtime)
