@@ -261,6 +261,7 @@ end)
 minetest.register_on_chat_message(function(name, message)
 	if KICK_CHATSPAM and not minetest.check_player_privs(name, {chatspam=true}) and string.len(message) > MAX_CHAT_MSG_LENGTH then
 		minetest.kick_player(name, "You were kicked because you sent a chat message longer than " .. MAX_CHAT_MSG_LENGTH .. " characters. This is to prevent chat spamming.")
+		return true
 	end
 	return 
 end)
