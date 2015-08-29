@@ -17,7 +17,6 @@ minetest.register_privilege("heal", "Player can heal other players with the /hea
 minetest.register_privilege("top", "Player can use the /top command")
 minetest.register_privilege("setspeed", "Player can set player speeds with the /setspeed command")
 minetest.register_privilege("whois", "Player can view other player's network information with the /whois command")
-minetest.register_privilege("disallowednodes", "Player can place nodes in the DISALLOWED_NODES table")
 minetest.register_privilege("chatspam", "Player can send chat messages longer than MAX_CHAT_MSG_LENGTH without being kicked")
 
 if AFK_CHECK then
@@ -246,21 +245,6 @@ minetest.register_on_newplayer(function(player)
 			minetest.chat_send_all(player:get_player_name() .. FIRST_TIME_JOIN_MSG)
 		end)
 	end
-end)
-
-minetest.register_on_placenode(function(pos, newNode, placer, oldnode, itemStack, pointed_thing)
-
-	for _,nodeName in pairs(DISALLOWED_NODES) do
-		if nodeName == newNode["name"] then
-			if minetest.check_player_privs(placer:get_player_name(), {disallowednodes=true}) then
-				return
-			else
-				minetest.remove_node(pos)
-				minetest.chat_send_player(placer:get_player_name(), "You cannot place the node " .. newNode["name"])
-			end
-		end
-	end
-	return
 end)
 
 minetest.register_on_chat_message(function(name, message)

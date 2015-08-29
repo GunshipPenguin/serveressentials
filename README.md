@@ -74,9 +74,6 @@ with the canafk privilege can remain afk indefenetly.
 
 + First time join message:
   + Shows a message when a player joins the server for the first time.
-	
-+ Node disallowing:
-  + Disallow placement of certain blocks, players with the disallowednodes priv can place them.
 
 + Chat spam kicking:
   + Automatically kick players who send chat messages that are greater than a certian length.
