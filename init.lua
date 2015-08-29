@@ -31,9 +31,20 @@ if minetest.setting_get("static_spawnpoint") then
 		description = "Teleport to static spawnpoint",
 		privs = {spawn = true}, 
 		func = function(playerName, param)
-			local spawnPoint = minetest.setting_get("static_spawnpoint") 
-			minetest.get_player_by_name(playerName):setpos(minetest.string_to_pos(spawnPoint))
-			return
+			local spawn_func = function(playerName)
+				local spawnPoint = minetest.setting_get("static_spawnpoint") 
+				minetest.get_player_by_name(playerName):setpos(minetest.string_to_pos(spawnPoint))
+				return
+			end
+			
+			
+			if SPAWN_DELAY > 0 then
+				minetest.chat_send_player(playerName, "Teleporting you to spawn in " .. SPAWN_DELAY .. " seconds")
+				minetest.after(SPAWN_DELAY, spawn_func, playerName)
+			else
+				minetest.chat_send_player(playerName, "Teleporting you to spawn")
+				spawn_func(playerName)
+			end 
 		end
 	})
 end
