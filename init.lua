@@ -24,17 +24,6 @@ if AFK_CHECK then
 	minetest.register_privilege("canafk", "Player can remain afk without being kicked")
 end
 
-if REMOVE_BONES then
-	minetest.register_abm({
-		nodenames = {"bones:bones"},
-		interval = REMOVE_BONES_TIME,
-		chance = 1,
-		action = function(pos, node, active_object_count, active_object_count_wider)
-			minetest.remove_node(pos)
-		end
-	})
-end
-
 if minetest.setting_get("static_spawnpoint") then
 	minetest.register_privilege("spawn", "Player can teleport to static spawnpoint using /spawn command")
 	

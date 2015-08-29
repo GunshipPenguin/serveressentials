@@ -86,10 +86,7 @@ Other features:
 		
 	First time join message:
 		Shows a message when a player joins the server for the first time.
-		
-	Auto remove bones:
-		Automatically removes bones to prevent them from building up.
-	
+			
 	Node disallowing:
 		Disallow placement of certain blocks, players with the disallowednodes priv can place them.
 
